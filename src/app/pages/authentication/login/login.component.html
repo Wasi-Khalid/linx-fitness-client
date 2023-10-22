@@ -1,0 +1,57 @@
+<div class="row m-0 w-100 h-100-vh">
+  <div class="col-md-8 bg-theme-primary">
+    <div class="d-flex flex-column justify-content-center align-items-center h-100">
+      <div class="animate__animated animate__fadeInLeftBig">
+        <img src="./assets/logo.png" width="500" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 bg-theme-white">
+    <div class="h-100 d-flex align-items-center w-100">
+      <div class="card border-0 rounded-4 w-100 shadow">
+        <div class="card-body p-4">
+          <form class="example-form">
+            <mat-form-field class="w-100">
+              <mat-label>Email</mat-label>
+              <input
+                type="name"
+                matInput
+                #name
+                [formControl]="userNameFormControl"
+                [errorStateMatcher]="matcher"
+                placeholder="Ex. pat@example.com"
+                class="w-100"
+              >
+              <mat-error *ngIf="userNameFormControl.hasError('required')">
+                Username is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Password</mat-label>
+              <input
+                type="password"
+                matInput
+                #password
+                [formControl]="passwordFormControl"
+                [errorStateMatcher]="matcher"
+                placeholder="Enter Password"
+                class="w-100"
+              >
+              <mat-error *ngIf="passwordFormControl.hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <div class="d-flex justify-content-center">
+              <button
+                type="button"
+                class="bg-primary text-white px-3 py-2 border-0 rounded"
+                (click)="onLogin(name.value, password.value)">
+                Sign In
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

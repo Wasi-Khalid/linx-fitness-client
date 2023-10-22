@@ -1,0 +1,19 @@
+<div class="h-100-vh">
+  <app-header (toggleSideBarForMe)="sideBarToggle()"></app-header>
+  <mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <app-sidebar></app-sidebar>
+    </mat-drawer>
+
+    <!-- Apply overflow to mat-drawer-content -->
+    <mat-drawer-content class="p-4 h-100">
+      <div class="overflow-auto h-100">
+        <mat-card class="h-100">
+          <mat-card-content>
+            <router-outlet></router-outlet>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

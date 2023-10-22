@@ -1,0 +1,26 @@
+<div class="navbar bg-theme-primary text-white d-flex w-100 py-3">
+  <div class="d-flex align-items-center w-25">
+    <button mat-icon-button (click)="toggleSideBar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="d-flex justify-content-center">
+    <img src="./assets/logo.png" width="280" alt="">
+  </div>
+  <div class="d-flex justify-content-end w-25">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>person</mat-icon>
+      </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Setting</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button (click)="localStorage.clear()" mat-menu-item routerLinkActive="list-item-active" routerLink="/login">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+      </mat-menu>
+  </div>
+</div>
