@@ -29,9 +29,6 @@ export class LoginComponent {
 
   matcher = new MyErrorStateMatcher;
 
-  // Add a flag to track whether a login request is in progress
-  isLoggingIn = false;
-
   constructor(
     private store: Store<ApplicationState>,
     private toast: ToastrService,

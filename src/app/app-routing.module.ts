@@ -5,6 +5,8 @@ import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { RegisterComponent } from "./pages/authentication/register/register.component";
 import { LayoutComponent } from "./components/layout/layout.component";
 import { authGuard } from "./guards/authentication/auth.guard";
+import { MemberComponent } from "./pages/client/member/member.component";
+import { AddMemberComponent } from "./pages/client/member/add-member/add-member.component";
 
 const routes: Routes = [
   {
@@ -19,6 +21,14 @@ const routes: Routes = [
       {
         path:'dashboard',
         component: DashboardComponent
+      },
+      {
+        path:'member',
+        component: MemberComponent
+      },
+      {
+        path:'add-member',
+        component: AddMemberComponent
       },
     ]
   },

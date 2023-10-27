@@ -6,13 +6,14 @@ import { Store } from "@ngrx/store";
 import { Actions, ofType } from "@ngrx/effects";
 import { GetLogin, GetLoginSuccess, GetLoginFail } from "../../store/actions/userAction/user.action";
 import {take, catchError, map} from "rxjs/operators";
+import {authApi} from "../../utils/api/auth/auth";
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
 
-  loginUrl = environment.baseUrl + "/auth/login";
+  loginUrl = environment.baseUrl + authApi.loginUrl;
 
   constructor(
     private http: HttpClient,

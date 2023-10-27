@@ -15,6 +15,13 @@ import { combinedEffects } from "./store/combined.effect";
 import { HttpClientModule } from "@angular/common/http";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { NgxSpinnerModule } from "ngx-spinner";
+import { storeFreeze } from 'ngrx-store-freeze';
+import { localStorageSync } from 'ngrx-store-localstorage';
+
+const localStorageSyncConfig = {
+  keys: ['user'],
+  rehydrate: true,
+};
 
 @NgModule({
   declarations: [
@@ -33,9 +40,14 @@ import { NgxSpinnerModule } from "ngx-spinner";
     StoreDevtoolsModule,
     EffectsModule,
     NgxSpinnerModule,
-    StoreModule.forRoot(reducers),
-    EffectsModule.forRoot(combinedEffects),
+    StoreModule.forRoot(reducers, {
+      metaReducers: [
+        localStorageSync(localStorageSyncConfig),
+        storeFreeze
+      ]
+    }),
     StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot(combinedEffects),
   ],
   providers: [],
   bootstrap: [AppComponent]

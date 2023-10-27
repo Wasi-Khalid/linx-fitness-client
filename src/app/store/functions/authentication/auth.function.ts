@@ -1,4 +1,4 @@
-import {  Actions, ofType } from "@ngrx/effects";
+import { Actions, ofType } from "@ngrx/effects";
 import { GetLogin, GetLoginSuccess, GetLoginFail } from "../../actions/userAction/user.action";
 import { take } from "rxjs/operators";
 import { Store } from "@ngrx/store";
