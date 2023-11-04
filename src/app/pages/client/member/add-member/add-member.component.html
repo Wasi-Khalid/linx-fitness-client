@@ -8,4 +8,130 @@
       <mat-icon class="m-0">keyboard_arrow_left</mat-icon>
     </button>
   </div>
+  <hr>
+  <div class="row w-100 p-2">
+    <h1 class="font-poppins fw-semibold">Personal Information</h1>
+    <div class="col-md-12">
+      <div class="d-flex align-items-center mb-3">
+        <input type="file" hidden="hidden" id="filePicker" (change)="readFile($event)">
+        <div>
+          <img
+            [src]="imageSrc"
+            width="100"
+            height="100"
+            alt=""
+            class="rounded-circle object-fit-contain"
+          >
+        </div>
+        <div class="px-3">
+          <button
+            class="bg-theme-primary text-white font-poppins text-white px-4 border-0 rounded py-2"
+            (click)="filePicker()"
+          >Select Image</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="w-100">
+        <mat-label>Enter Name</mat-label>
+        <input class="w-100" [(ngModel)]="formData.name" name="name" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="w-100">
+        <mat-label>Enter Email</mat-label>
+        <input class="w-100" [(ngModel)]="formData.email" name="email" type="email" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>Enter Phone No</mat-label>
+        <input class="w-100" [(ngModel)]="formData.phone" name="phone" type="number" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-8">
+      <mat-form-field class="w-100">
+        <mat-label>Enter Address</mat-label>
+        <input class="w-100" [(ngModel)]="formData.address" name="address" type="text" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>Date Of Birth</mat-label>
+        <input class="w-100" [(ngModel)]="formData.dob" name="dob" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>Select Gender</mat-label>
+        <select matNativeControl [(ngModel)]="formData.gender" name="gender" required>
+          <option value="" disabled selected></option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>Emergency Contact Name</mat-label>
+        <input class="w-100" [(ngModel)]="formData.emergency_contact_name" name="emergency_contact_name" type="text" matInput>
+      </mat-form-field>
+    </div>
+  </div>
+  <br>
+  <div class="row w-100 p-2">
+    <h1 class="font-poppins fw-semibold">Subscription</h1>
+    <div class="col-md-6">
+      <div class="">
+        <mat-card id="monthly" class="py-3 card-hover" (click)="selectedCard('monthly')">
+          <mat-card-content class="text-center">
+            <h1 class="font-poppins fw-bold">Monthly</h1>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-hover">
+        <mat-card id="yearly" class="py-3 card-hover" (click)="selectedCard('yearly')">
+          <mat-card-content class="text-center">
+            <h1 class="font-poppins fw-bold">Yearly</h1>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row w-100 p-2">
+    <h1 class="font-poppins fw-semibold">Payment Method</h1>
+    <div class="col-md-6">
+      <mat-form-field class="w-100">
+        <mat-label>CardHolder Full Name</mat-label>
+        <input class="w-100" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="w-100">
+        <mat-label>Card No</mat-label>
+        <input [(ngModel)]="formData.cardNo" name="cardNo" class="w-100" type="number" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="w-100">
+        <mat-label>CVV</mat-label>
+        <input class="w-100" type="number" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="w-100">
+        <mat-label>Expiry Date</mat-label>
+        <input class="w-100" data-date-format="MM YYYY" type="date" matInput>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="d-flex p-2">
+    <button class="bg-theme-primary text-white border-0 px-4 py-2 font-poppins" (click)="submit()">Submit</button>
+  </div>
 </div>

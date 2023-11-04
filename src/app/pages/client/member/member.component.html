@@ -1,11 +1,30 @@
-<div class="w-100">
-  <div class="d-flex justify-content-end w-100">
-    <button
-      class="d-flex align-content-center bg-theme-primary border-0 text-white px-2 py-2 rounded-circle fs-6"
-      routerLinkActive="list-item-active"
-      routerLink="/add-member"
+<div class=" w-100">
+  <div class="d-flex w-100">
+    <input
+      type="text"
+      placeholder="Search"
+      class="form-control font-poppins w-50"
+      [(ngModel)]="searchText"
+      (ngModelChange)="filterMembers()"
     >
-      <mat-icon class="m-0">add</mat-icon>
-    </button>
+    <div class="d-flex justify-content-end w-100">
+      <button
+        class="d-flex align-content-center bg-theme-primary border-0 text-white px-2 py-2 rounded-circle fs-6"
+        routerLinkActive="list-item-active"
+        routerLink="/add-member"
+      >
+        <mat-icon class="m-0">add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="row py-3">
+    <div class="col-md-2 col-sm-6" *ngFor="let item of members">
+      <app-member-card
+        [title]="item.name"
+        [imageUrl]="item.photo_id"
+        [status]="'paid'"
+      >
+      </app-member-card>
+    </div>
   </div>
 </div>

@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center mt-3">
+  <div class="member-card-image">
+    <img
+      [src]="'http://0.0.0.0:8000' + imageUrl"
+      alt="{{ title }}"
+      width="70"
+      height="70"
+      class="rounded-circle object-fit-cover"
+    >
+  </div>
+</div>
+<div class="card shadow border-0">
+  <div class="card-body">
+    <div class="card-content">
+      <h3 class="card-title mb-0 pt-3 font-poppins text-center my-1">{{ title }}</h3>
+      <div class="d-flex justify-content-center">
+        <div *ngIf="status === 'paid'; else elseBlock1">
+          <button class="mb-0 bg-success text-white border-0 px-2 text-uppercase font-poppins my-1 text-center">{{ status }}</button>
+        </div>
+
+        <ng-template #elseBlock1>
+          <div *ngIf="status === 'un-paid'">
+            <button class="mb-0 bg-danger text-white border-0 px-2 text-uppercase font-poppins my-1 text-center">{{ status }}</button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

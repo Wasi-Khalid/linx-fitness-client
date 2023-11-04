@@ -6,8 +6,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .bg-theme-primary {
   background-color: #222e50 !important;
 }
+.theme-primary {
+  background-color: #222e50 !important;
+}
 .bg-theme-secondary {
-  background-color: #fccb06 !important;
+  background-color: #f6db54 !important;
 }
 .bg-theme-white {
   background-color: #edf7f6 !important;
